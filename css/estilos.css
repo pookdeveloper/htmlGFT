@@ -2,3 +2,23 @@
 .icono{
   height: 100%;
 }
+
+
+.imagen {position: relative; text-align: center;}
+
+.imagen .texto {
+  position: absolute;
+  text-shadow: 2px 2px #FF0000;
+top: 50%;
+width: 100%;
+color: black;
+font-weight: normal;
+font-size: 30px;
+}
+
+img.fondo
+ {
+ position: relative;
+ width: 100%;
+ vertical-align: middle;
+ }
