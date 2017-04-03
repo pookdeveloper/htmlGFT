@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- If you need to support IE 9 or IE 8-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- So responsive design works in small mobile devices (phones,...) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajax example page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="principal" class="prueba1">
+        <h1 id="t1">LISTADO DE PRODUCTOS</h1>
+        <button id="obtenerMonedas" onclick="enviar();">Obtener Productos</button>
+
+        <table id="listadoProdutos">
+            <tbody>
+                <tr>
+                    <th>CODIGO</th>
+                    <th>PRODUCTO</th>
+                    <th>PRECIO</th>
+                    <th>FAMILIA</th>
+                    <th>DESCATALOGADO</th>
+                    <th>FECHA DE ALTA</th>
+                    <th>ELIMINAR</th>
+                    <th>EDITAR</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+<script>
+    function enviar() {
+
+        var http_request;
+
+        var producto = {
+            "codigo":55664,
+            "nombre":"Inkjet BLACK A20",
+            "precio":25.5,
+            "familia":"CONSUMIBLE",
+            "descatalogado":false,
+            "fechaAlta":1157407200000
+          };
+        try {
+            var url = 'http://172.22.20.103:8089/practicasjee/api/productos';
+            http_request = new XMLHttpRequest();
+            http_request.open('POST', url, true);
+            http_request.setRequestHeader('Content-Type', 'application/json');
+            http_request.send(JSON.parse(producto));
+        } catch (e) {
+            alert(JSON.stringify(e));
+        } finally {
+
+        }
+
+    }
+</script>
+
+</html>
